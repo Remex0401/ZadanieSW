@@ -6,21 +6,44 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
+    "daisyui": "^5.0.43",
     "next": "15.3.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@storybook/addon-docs": "^9.1.0-alpha.6",
+    "@storybook/addon-essentials": "^9.0.0-alpha.12",
+    "@storybook/addon-interactions": "^9.0.0-alpha.10",
+    "@storybook/addon-links": "^9.1.0-alpha.6",
+    "@storybook/addon-mdx-gfm": "^9.0.0-alpha.13",
+    "@storybook/addon-onboarding": "^9.1.0-alpha.6",
+    "@storybook/addon-themes": "^9.1.0-alpha.6",
+    "@storybook/nextjs": "^9.1.0-alpha.6",
+    "@storybook/react": "^9.1.0-alpha.6",
     "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/postcss": "^4.1.10",
+    "@types/node": "^24.0.3",
+    "@types/react": "^19.1.8",
+    "ajv": "^8.12.0",
+    "ajv-keywords": "^5.1.0",
     "autoprefixer": "^10.4.21",
     "eslint": "^9",
     "eslint-config-next": "15.3.4",
     "postcss": "^8.5.6",
-    "tailwindcss": "^4.1.10"
-  }
+    "storybook": "^9.1.0-alpha.6",
+    "tailwindcss": "^4.1.10",
+    "typescript": "^5.8.3"
+  },
+  "description": "This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

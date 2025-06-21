@@ -1,6 +1,9 @@
 @import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
+/* :root {
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -25,4 +28,18 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-
+ */
+ use {
+  &:nth-child(2) {
+    transform: translate(20px);
+  }
+  &:nth-child(3) {
+    transform: translate(40px);
+  }
+  &:nth-child(4) {
+    transform: translate(60px);
+  }
+  &:nth-child(5) {
+    transform: translate(80px);
+  }
+}
