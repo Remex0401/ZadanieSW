@@ -8,7 +8,7 @@ interface ButtonProps {
 }
 
 export const Button: FC<ButtonProps> = ({ 
-  size = 'medium', 
+  size = 'large', 
   children = '',
   className = '',
   ariaLabel = ''

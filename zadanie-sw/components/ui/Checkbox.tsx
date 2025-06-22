@@ -1,6 +1,11 @@
 import { FC } from 'react';
 
-export const Checkbox: FC = () => {
+interface CheckboxProps {
+    checked: boolean;
+    onChange: (checked: boolean) => void;
+}
+
+export const Checkbox: FC<CheckboxProps> = ({ checked, onChange }) => {
     return (
         <div>
              <input type="checkbox" 

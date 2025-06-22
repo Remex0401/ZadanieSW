@@ -6,7 +6,7 @@ import { Button } from '../ui/Button';
 export const Navbar: FC = () => {
     return (
         <header className="fixed top-0 left-0 w-full bg-white">
-            <nav className="flex flex-col sm:flex-row sm:justify-between sm:items-center p-4 sm:p-8 flex mx-auto max-w-9/10">
+            <nav className="flex flex-col sm:flex-row sm:justify-between sm:items-center p-4 sm:p-8 flex mx-auto max-w-screen-xl">
               
               {/* Logo */}
               <div className="flex justify-between items-center w-full sm:contents order-1 sm:order-none">
@@ -18,21 +18,23 @@ export const Navbar: FC = () => {
                 </div>
                 {/* Mobile login button */}
                 <div className="sm:hidden">
-                    <Button size="small" className="bg-white text-blue-500 border-2" ariaLabel="Log in to your account" children="Log in" />
+                    <Button size="small" className="bg-white text-blue-500 border-2" ariaLabel="Log in to your account">
+                      Log in
+                    </Button>
                 </div>
               </div>
               
               {/* Filters */}
               <div className="flex flex-col sm:items-center order-3 sm:order-2 sm:flex-row md:pl-5 sm:pl-3 lg:pl-25">
-                <fieldset className="flex sm:items-center order-2 sm:order-none p-2">
+                <fieldset className="flex sm:items-center order-2 sm:order-none pt-2">
                   <legend className="sr-only">Filter options</legend>
                   <label className="inline-flex items-center cursor-pointer space-x-2 sm:pr-1">
-                    <Checkbox />
+                    <Checkbox checked={true} onChange={() => {}} />
                     <span className="text-gray-700 text-1xl">Active</span>
                   </label>
 
-                  <label className="inline-flex items-center cursor-pointer space-x-2 lg:pl-5">
-                    <Checkbox />
+                  <label className="inline-flex items-center cursor-pointer space-x-2 lg:pl-5 ml-2">
+                    <Checkbox checked={false} onChange={() => {}} />
                     <span className="text-gray-700 text-1xl">Promo</span>
                     </label>
                   </fieldset>
@@ -69,7 +71,7 @@ export const Navbar: FC = () => {
 
               {/*Desktop login button*/}
               <div className="hidden sm:flex items-center order-2 sm:order-3">
-                <Button size="large" className="bg-white text-blue-500 border-2" ariaLabel="Log in to your account" children="Log in" />
+                <Button size="large" className="bg-white text-blue-500 border-2" children="Log in" ariaLabel="Log in to your account" />
               </div>
             </nav>
           </header>
