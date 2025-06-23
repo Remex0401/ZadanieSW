@@ -40,27 +40,30 @@ export const ProductList: FC<ProductListProps> = ({ products }) => {
         {isClient && totalPages > 1 && (
             <nav aria-label='Pagination' className='mt-10 flex justify-center'>
                 <ul className='flex gap-2'>
-                    {(currentPage === 1) ? (
-                    <li> <button className="px-4 py-2 pb-5 text-gray-400" onClick={() => setCurrentPage(1)}> First </button></li>
-                    ) : (
-                    <li> <button className="px-4 py-2 pb-50 " onClick={() => setCurrentPage(1)}> First </button></li>
-                    )}
+                    <li>
+                        <button
+                            onClick={() => setCurrentPage(1)}
+                            disabled={currentPage === 1}
+                            className="px-4 py-2 disabled:text-gray-400">
+                            First
+                        </button>
+                    </li>
                     {Array.from({length: totalPages}, (_, index) => (
-                        (currentPage === index + 1) ? (
                         <li key={index}>
-                            <button className=' text-blue-500 px-4 py-2 rounded-md pb-5 font-bold' onClick={() => setCurrentPage(index + 1)}>{index + 1}</button>
-                            </li>
-                        ) : (
-                        <li key={index}>
-                            <button className='text-black px-4 py-2 rounded-md pb-5 font-bold' onClick={() => setCurrentPage(index + 1)}>{index + 1}</button>
-                            </li>
-                        )
+                            <button className=' text-black px-4 py-2 rounded-md pb-5 font-bold disabled:text-blue-500'
+                                    disabled={currentPage === index + 1}
+                                    onClick={() => setCurrentPage(index + 1)}>
+                                    {index + 1}
+                            </button>
+                        </li>
                     ))}
-                        {(currentPage === totalPages) ? (
-                    <li> <button className="px-4 py-2 pb-5 text-gray-400" onClick={() => setCurrentPage(totalPages)}> Last </button></li>
-                    ) : (
-                    <li> <button className="px-4 py-2 pb-5 " onClick={() => setCurrentPage(totalPages)}> Last </button></li>
-                    )}
+                    <li> 
+                        <button className="px-4 py-2 pb-5 disabled:text-gray-400" 
+                                 disabled={currentPage === totalPages}
+                                 onClick={() => setCurrentPage(totalPages)}>
+                                Last 
+                        </button>
+                    </li>
                 </ul>
             </nav>
         )}
