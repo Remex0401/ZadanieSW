@@ -2,23 +2,34 @@
 import { FC, useState, useEffect} from 'react';
 import { ProductCard } from './ProductCard';
 import { Product } from '../../lib/api';
+import { Navbar } from '../layout/Navbar';
 
 interface ProductListProps {
     products: Product[];
+    filters: {active: boolean, promo: boolean};
 }
 const items_per_page = 8;
 
-export const ProductList: FC<ProductListProps> = ({ products }) => {
+export const ProductList: FC<ProductListProps> = ({ products, filters }) => {
     const [currentPage, setCurrentPage] = useState(1);
-    const totalPages = Math.ceil(products.length / items_per_page);
+    
     const [isClient, setIsClient] = useState(false);
     useEffect(() => {
         setIsClient(true);
       }, []);
     
+    const filteredProducts = products.filter(product  => {
+        if (filters.active && !product.active) return false;
+        if (filters.promo && !product.promotion) return false; 
+        return true;
+    })
+
+    const totalPages = Math.ceil(filteredProducts.length / items_per_page);
     const startIndex = (currentPage - 1) * items_per_page;
     const endIndex = startIndex + items_per_page;
-    const currentProducts = products.slice(startIndex, endIndex);
+    const currentProducts = filteredProducts.slice(startIndex, endIndex);
+
+
 
     return (
         <div>

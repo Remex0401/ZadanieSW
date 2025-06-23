@@ -2,8 +2,12 @@ import { FC } from 'react';
 import { Checkbox } from '../ui/Checkbox';
 import { Button } from '../ui/Button';
 
+interface NavbarProps {
+  filters: { active: boolean; promo: boolean };
+  onFilterChange: (filterName: 'active' | 'promo', value: boolean) => void;
+}
 
-export const Navbar: FC = () => {
+export const Navbar: FC<NavbarProps> = ({filters, onFilterChange}) => {
     return (
         <header className="fixed top-0 left-0 w-full bg-white">
             <nav className="flex flex-col sm:flex-row sm:justify-between sm:items-center p-4 sm:p-8 flex mx-auto max-w-screen-xl">
@@ -29,12 +33,15 @@ export const Navbar: FC = () => {
                 <fieldset className="flex sm:items-center order-2 sm:order-none pt-2">
                   <legend className="sr-only">Filter options</legend>
                   <label className="inline-flex items-center cursor-pointer space-x-2 sm:pr-1">
-                    <Checkbox checked={true} onChange={() => {}} />
+                    <Checkbox checked={filters.active} onChange={checked => onFilterChange('active', checked)} />
                     <span className="text-gray-700 text-1xl">Active</span>
                   </label>
 
                   <label className="inline-flex items-center cursor-pointer space-x-2 lg:pl-5 ml-2">
-                    <Checkbox checked={false} onChange={() => {}} />
+                  <Checkbox
+                      checked={filters.promo}
+                      onChange={checked => onFilterChange('promo', checked)}
+                    />
                     <span className="text-gray-700 text-1xl">Promo</span>
                     </label>
                   </fieldset>
