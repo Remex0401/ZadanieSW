@@ -39,9 +39,15 @@ export const ProductCard: FC<ProductCardProps> = ({ imageurl, name, rating, desc
         <Rating rating={rating} />
         <p className="text-sm text-gray-600 my-4 flex-grow">{description}</p>
         <div className="flex justify-between items-center mt-auto">
-          <Button size="card" className="bg-blue-500 text-white border-0" ariaLabel="Show details">
-            Show details
-          </Button>
+          { active ? (
+            <Button size="card" className="bg-blue-500 text-white border-0 hover:bg-blue-100 hover:text-blue-400 hover:border-blue-400" ariaLabel="Show details">
+              Show details
+            </Button>
+          ) : (
+            <Button size="card" className="bg-gray-500 text-white border-0 " ariaLabel="Unavailable">
+              Unavailable
+            </Button>
+          )}
         </div>
       </div>
     </Card>

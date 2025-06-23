@@ -18,7 +18,7 @@ export const Navbar: FC = () => {
                 </div>
                 {/* Mobile login button */}
                 <div className="sm:hidden">
-                    <Button size="small" className="bg-white text-blue-500 border-2" ariaLabel="Log in to your account">
+                    <Button size="small" className="bg-white text-blue-500 border-2 hover:bg-blue-100 hover:text-blue-400 hover:border-blue-400" ariaLabel="Log in to your account">
                       Log in
                     </Button>
                 </div>
@@ -71,7 +71,7 @@ export const Navbar: FC = () => {
 
               {/*Desktop login button*/}
               <div className="hidden sm:flex items-center order-2 sm:order-3">
-                <Button size="large" className="bg-white text-blue-500 border-2" children="Log in" ariaLabel="Log in to your account" />
+                <Button size="large" className="bg-white text-blue-500 border-2 hover:bg-blue-100 hover:text-blue-400 hover:border-blue-400" children="Log in" ariaLabel="Log in to your account" />
               </div>
             </nav>
           </header>

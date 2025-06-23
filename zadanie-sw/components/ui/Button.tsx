@@ -21,8 +21,7 @@ export const Button: FC<ButtonProps> = ({
 
   return (
     <button 
-      className={`border-blue-500 rounded-lg
-        hover:bg-blue-100 hover:text-blue-400 hover:border-blue-400 mb-2
+      className={`border-blue-500 rounded-lg mb-2
         ${sizeClasses[size]}
         ${className}
         `}
