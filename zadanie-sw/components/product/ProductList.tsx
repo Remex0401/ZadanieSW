@@ -71,6 +71,7 @@ export const ProductList: FC<ProductListProps> = ({
               pageRangeDisplayed={2}
               marginPagesDisplayed={1}
               onPageChange={({ selected }) => setCurrentPage(selected + 1)}
+              forcePage={currentPage - 1}
               breakLabel="..."
               previousLabel=" "
               nextLabel=" "
