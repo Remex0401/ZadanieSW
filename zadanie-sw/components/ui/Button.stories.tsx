@@ -1,7 +1,7 @@
-import { Button } from './Button';
+import { Button } from "./Button";
 
 export default {
-  title: 'UI/Button',
+  title: "UI/Button",
   component: Button,
 };
 
@@ -9,6 +9,6 @@ export const Default = {
   args: {
     children: "Show details",
     size: "large",
-    className: "bg-blue-700 text-white border-0"
+    className: "bg-blue-700 text-white border-0",
   },
 };

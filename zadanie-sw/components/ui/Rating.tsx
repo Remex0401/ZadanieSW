@@ -1,11 +1,11 @@
-import { FC } from 'react';
+import { FC } from "react";
 
 /* SVG STARS USED FROM https://heroicons.com/ */
 const StarDefinitions = () => (
-  <svg width="0" height="0" style={{ position: 'absolute' }}>
+  <svg width="0" height="0" style={{ position: "absolute" }}>
     <defs>
       {/* Empty star */}
-      <symbol id="star-empty" >
+      <symbol id="star-empty">
         <path
           fill="transparent"
           stroke="grey"
@@ -45,7 +45,7 @@ const StarDefinitions = () => (
 );
 
 /* Render single star */
-const Star: FC<{ type: 'full' | 'half' | 'empty' }> = ({ type }) => (
+const Star: FC<{ type: "full" | "half" | "empty" }> = ({ type }) => (
   <svg aria-hidden="true" focusable="false" className="w-5 h-5">
     <use href={`#star-${type}`} />
   </svg>
@@ -64,11 +64,11 @@ export const Rating: FC<RatingProps> = ({ rating }) => {
       <StarDefinitions />
       <div className="flex items-center space-x-1">
         {[1, 2, 3, 4, 5].map((starNumber) => {
-          let starType: 'full' | 'half' | 'empty' = 'empty';
+          let starType: "full" | "half" | "empty" = "empty";
           if (ratingInStars >= starNumber) {
-            starType = 'full';
+            starType = "full";
           } else if (ratingInStars > starNumber - 1) {
-            starType = 'half';
+            starType = "half";
           }
           return <Star key={starNumber} type={starType} />;
         })}

@@ -1,24 +1,24 @@
-import { Rating } from './Rating';
+import { Rating } from "./Rating";
 
 export default {
-  title: 'UI/Rating',
+  title: "UI/Rating",
   component: Rating,
 };
 export const Rating46 = {
   args: {
-    rating: 46, 
+    rating: 46,
   },
 };
 
 export const Rating94 = {
   args: {
-    rating: 94, 
+    rating: 94,
   },
 };
 
 export const Rating0 = {
   args: {
-    rating: 0, 
+    rating: 0,
   },
 };
 

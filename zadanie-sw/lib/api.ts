@@ -8,11 +8,9 @@ export interface Product {
   promotion: boolean;
 }
 
-
-
 export async function fetchProducts(): Promise<Product[]> {
-  const apiUrl = "https://685596751789e182b37bc02b.mockapi.io/products/products";
-  
+  const apiUrl = `${process.env.NEXT_PUBLIC_API_URL}/products/products`;
+
   try {
     const reponse = await fetch(apiUrl);
     if (!reponse.ok) {
