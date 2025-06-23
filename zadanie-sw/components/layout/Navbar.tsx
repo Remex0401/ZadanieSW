@@ -5,11 +5,13 @@ import { Button } from '../ui/Button';
 interface NavbarProps {
   filters: { active: boolean; promo: boolean };
   onFilterChange: (filterName: 'active' | 'promo', value: boolean) => void;
+  search: string;
+  onSearchChange: (value: string) => void;
 }
 
-export const Navbar: FC<NavbarProps> = ({filters, onFilterChange}) => {
+export const Navbar: FC<NavbarProps> = ({filters, onFilterChange, search, onSearchChange}) => {
     return (
-        <header className="fixed top-0 left-0 w-full bg-white">
+        <header className="fixed top-0 left-0 w-full bg-white h-30">
             <nav className="flex flex-col sm:flex-row sm:justify-between sm:items-center p-4 sm:p-8 flex mx-auto max-w-screen-xl">
               
               {/* Logo */}
@@ -60,7 +62,10 @@ export const Navbar: FC<NavbarProps> = ({filters, onFilterChange}) => {
                         focus:outline-none focus:border-gray-950  focus:placeholder:text-gray-300 sm:w-25 xl:w-140 md:w-55 lg:w-80
                         placeholder:text-gray-950 placeholder:text-1xl" 
                         id="search-input" 
-                        aria-label="Search products"/>
+                        aria-label="Search products"
+                        value={search}
+                        onChange={e => onSearchChange(e.target.value)}
+                        />
                   <svg xmlns="http://www.w3.org/2000/svg" 
                       fill="none" 
                       viewBox="0 0 24 24" 

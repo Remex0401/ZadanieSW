@@ -7,12 +7,12 @@ import { Navbar } from '../layout/Navbar';
 interface ProductListProps {
     products: Product[];
     filters: {active: boolean, promo: boolean};
+    search: string;
 }
 const items_per_page = 8;
 
-export const ProductList: FC<ProductListProps> = ({ products, filters }) => {
-    const [currentPage, setCurrentPage] = useState(1);
-    
+export const ProductList: FC<ProductListProps> = ({ products, filters, search }) => {
+    const [currentPage, setCurrentPage] = useState(1);    
     const [isClient, setIsClient] = useState(false);
     useEffect(() => {
         setIsClient(true);
@@ -24,10 +24,14 @@ export const ProductList: FC<ProductListProps> = ({ products, filters }) => {
         return true;
     })
 
+    const searchedProducts = filteredProducts.filter(product => 
+        product.name.toLowerCase().includes(search.toLowerCase())
+    )
+
     const totalPages = Math.ceil(filteredProducts.length / items_per_page);
     const startIndex = (currentPage - 1) * items_per_page;
     const endIndex = startIndex + items_per_page;
-    const currentProducts = filteredProducts.slice(startIndex, endIndex);
+    const currentProducts = searchedProducts.slice(startIndex, endIndex);
 
 
 
