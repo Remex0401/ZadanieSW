@@ -1,25 +1,34 @@
 "use client";
+import { useRouter,useSearchParams } from "next/navigation";
 import { FC, useState, useEffect } from "react";
 import { ProductCard } from "./ProductCard";
 import { Product } from "../../lib/api";
+
 import ReactPaginate from "react-paginate";
 
 interface ProductListProps {
   products: Product[];
-  filters: { active: boolean; promo: boolean };
-  search: string;
+  filters: { active: boolean; promo: boolean, search: string };
+
+  currentPage: number;
 }
 const items_per_page = 8;
 
 export const ProductList: FC<ProductListProps> = ({
   products,
   filters,
-  search,
+  // search,
+  currentPage = 1,
 }) => {
-  const [currentPage, setCurrentPage] = useState(1);
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const active = searchParams.get("active") === "true";
+  const promo = searchParams.get("promo") === "true";
+  const search = searchParams.get("search") || "";
+
+  
   const [isClient, setIsClient] = useState(false);
   useEffect(() => {
-    setCurrentPage(1);
     setIsClient(true);
   }, [filters, search]);
 
@@ -33,10 +42,16 @@ export const ProductList: FC<ProductListProps> = ({
     product.name.toLowerCase().includes(search.toLowerCase()),
   );
 
-  const totalPages = Math.ceil(searchedProducts.length / items_per_page);
+  const totalPages = Math.max(1, Math.ceil(searchedProducts.length / items_per_page));
   const startIndex = (currentPage - 1) * items_per_page;
   const endIndex = startIndex + items_per_page;
   const currentProducts = searchedProducts.slice(startIndex, endIndex);
+
+ useEffect(() => {
+  if (isClient && currentPage > totalPages) {
+    router.push(`/page/${totalPages}?active=${filters.active}&promo=${filters.promo}&search=${filters.search}`);
+  }
+}, [isClient, currentPage, totalPages, router, filters]);
 
   return (
     <div>
@@ -59,7 +74,7 @@ export const ProductList: FC<ProductListProps> = ({
           <ul className="flex">
             <li>
               <button
-                onClick={() => setCurrentPage(1)}
+                onClick={() => router.push(`/page/1?active=${filters.active}&promo=${filters.promo}&search=${search}`)}
                 disabled={currentPage === 1}
                 className=" disabled:text-gray-400"
               >
@@ -70,7 +85,7 @@ export const ProductList: FC<ProductListProps> = ({
               pageCount={totalPages}
               pageRangeDisplayed={3}
               marginPagesDisplayed={3}
-              onPageChange={({ selected }) => setCurrentPage(selected + 1)}
+              onPageChange={({ selected }) => router.push(`/page/${selected + 1}?active=${filters.active}&promo=${filters.promo}&search=${search}`)}
               forcePage={currentPage - 1}
               breakLabel="..."
               previousLabel=" "
@@ -85,8 +100,7 @@ export const ProductList: FC<ProductListProps> = ({
               <button
                 className=" disabled:text-gray-400"
                 disabled={currentPage === totalPages}
-                onClick={() => setCurrentPage(totalPages)}
-              >
+                onClick={() => router.push(`/page/${totalPages}?active=${filters.active}&promo=${filters.promo}&search=${search}`)}>
                 Last
               </button>
             </li>
@@ -94,5 +108,6 @@ export const ProductList: FC<ProductListProps> = ({
         </nav>
       )}
     </div>
+    
   );
 };

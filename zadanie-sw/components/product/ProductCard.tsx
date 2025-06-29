@@ -28,9 +28,9 @@ export const ProductCard: FC<ProductCardProps> = ({
             <img
               src={imageurl}
               alt={name}
-              className="w-full sm:h-42.5 object-cover"
+              className="w-full h-42.5 object-cover"
             />
-            <div className="absolute top-6.5 left-0 bg-[#F9A52B] text-white sm:w-18.75 sm:h-6 flex items-center justify-center">
+            <div className="absolute top-6.5 left-0 bg-[#F9A52B] text-white w-18.75 h-6 flex items-center justify-center">
               Promo
             </div>
           </div>
@@ -38,7 +38,7 @@ export const ProductCard: FC<ProductCardProps> = ({
           <img
             src={imageurl}
             alt={name}
-            className="w-full sm:h-42.5 object-cover "
+            className="w-full h-42.5 object-cover "
           />
         )
       ) : promotion ? (
@@ -46,9 +46,9 @@ export const ProductCard: FC<ProductCardProps> = ({
           <img
             src={imageurl}
             alt={name}
-            className="w-full sm:h-42.5 object-cover grayscale opacity-50"
+            className="w-full h-42.5 object-cover grayscale opacity-50"
           />
-            <div className="absolute top-6.5 left-0 bg-[#F9A52B] text-white sm:w-18.75 sm:h-6 flex items-center justify-center">
+            <div className="absolute top-6.5 left-0 bg-[#F9A52B] text-white w-18.75 h-6 flex items-center justify-center">
               Promo
             </div>
         </div>

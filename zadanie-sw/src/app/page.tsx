@@ -5,5 +5,5 @@ import PageFiltered from "../../components/layout/PageFiltered";
 export default async function Page() {
   const products = await fetchProducts();
 
-  return <PageFiltered products={products} />;
+  return <PageFiltered products={products} currentPage={1} />;
 }
