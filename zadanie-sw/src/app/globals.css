@@ -1,7 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
 @import "tailwindcss";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
+
 
 /* :root {
   --background: #ffffff;
@@ -29,17 +29,11 @@ body {
 }
 
  */
-use {
-  &:nth-child(2) {
-    transform: translate(20px);
-  }
-  &:nth-child(3) {
-    transform: translate(40px);
-  }
-  &:nth-child(4) {
-    transform: translate(60px);
-  }
-  &:nth-child(5) {
-    transform: translate(80px);
-  }
+
+ body {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0px;
 }

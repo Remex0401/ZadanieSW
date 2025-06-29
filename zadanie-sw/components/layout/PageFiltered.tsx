@@ -31,9 +31,9 @@ export default function PageFiltered({ products }: PageFilteredProps) {
       />
 
       {/* Main content */}
-      <main className="pt-24 sm:pt-32 px-4 sm:px-0 mx-auto max-w-screen-xl">
+      <main className="flex flex-col sm:flex-row sm:justify-center items-center pt-54.5 sm:pt-33.5 flex mx-auto max-w-screen-xl xl:w-300 ">
         {!products || products.length === 0 ? (
-          <p className="text-center text-gray-500">Could not load products.</p>
+          <p className="text-center leading-4">Could not load products.</p>
         ) : (
           <ProductList products={products} filters={filters} search={search} />
         )}

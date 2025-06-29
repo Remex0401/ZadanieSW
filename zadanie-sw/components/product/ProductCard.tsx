@@ -21,16 +21,16 @@ export const ProductCard: FC<ProductCardProps> = ({
   promotion,
 }) => {
   return (
-    <Card className="flex flex-col">
+    <Card className="flex flex-col w-72 h-100 rounded-lg overflow-hidden shadow-none">
       {active ? (
         promotion ? (
           <div className="relative">
             <img
               src={imageurl}
               alt={name}
-              className="w-full h-48 object-cover rounded-t-lg"
+              className="w-full sm:h-42.5 object-cover"
             />
-            <div className="absolute top-10 left-0 bg-orange-400 text-white px-4 py-1 p-5">
+            <div className="absolute top-6.5 left-0 bg-[#F9A52B] text-white sm:w-18.75 sm:h-6 flex items-center justify-center">
               Promo
             </div>
           </div>
@@ -38,7 +38,7 @@ export const ProductCard: FC<ProductCardProps> = ({
           <img
             src={imageurl}
             alt={name}
-            className="w-full h-48 object-cover rounded-t-lg"
+            className="w-full sm:h-42.5 object-cover "
           />
         )
       ) : promotion ? (
@@ -46,28 +46,28 @@ export const ProductCard: FC<ProductCardProps> = ({
           <img
             src={imageurl}
             alt={name}
-            className="w-full h-48 object-cover rounded-t-lg grayscale opacity-50"
+            className="w-full sm:h-42.5 object-cover grayscale opacity-50"
           />
-          <div className="absolute top-10 left-0 bg-orange-300 text-white px-4 py-1 p-5">
-            Promo
-          </div>
+            <div className="absolute top-6.5 left-0 bg-[#F9A52B] text-white sm:w-18.75 sm:h-6 flex items-center justify-center">
+              Promo
+            </div>
         </div>
       ) : (
         <img
           src={imageurl}
           alt={name}
-          className="w-full h-48 object-cover rounded-t-lg grayscale opacity-50"
+          className="w-full sm:h-42.5 object-cover grayscale opacity-50"
         />
       )}
       <div className="p-4 flex flex-col flex-grow">
-        <h3 className="text-lg font-bold mb-2">{name}</h3>
+        <p className="text-lg text-[#1A1B1D] mb-1.75 leading-4.5">{name}</p>
+        <p className="text-[#9194A5] flex-grow">{description}</p>
         <Rating rating={rating} />
-        <p className="text-sm text-gray-600 my-4 flex-grow">{description}</p>
-        <div className="flex justify-between items-center mt-auto">
+        <div className="pt-4.5 flex justify-between items-center mt-auto">
           {active ? (
             <Button
               size="card"
-              className="bg-blue-500 text-white border-0 hover:bg-blue-100 hover:text-blue-400 hover:border-blue-400"
+              className="bg-[#4460F7] text-white border-0 hover:bg-blue-100 hover:text-blue-400 hover:border-blue-400 mb-2"
               ariaLabel="Show details"
             >
               Show details
@@ -75,7 +75,7 @@ export const ProductCard: FC<ProductCardProps> = ({
           ) : (
             <Button
               size="card"
-              className="bg-gray-500 text-white border-0 "
+              className="bg-[#9194A5] text-white border-0 mb-2"
               ariaLabel="Unavailable"
             >
               Unavailable

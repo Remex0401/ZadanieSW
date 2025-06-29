@@ -40,7 +40,7 @@ export const ProductList: FC<ProductListProps> = ({
 
   return (
     <div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-5 mt-15 xl:mt-10 xl:p-0">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:w-300 gap-4">
         {currentProducts.map((product) => (
           <ProductCard
             key={product.id}
@@ -55,35 +55,35 @@ export const ProductList: FC<ProductListProps> = ({
       </div>
 
       {isClient && totalPages > 1 && (
-        <nav aria-label="Pagination" className="mt-10 flex justify-center">
-          <ul className="flex gap-2">
+        <nav aria-label="Pagination" className="mt-3.75 flex justify-center w-72 h-4 mx-auto text-sm mb-6">
+          <ul className="flex">
             <li>
               <button
                 onClick={() => setCurrentPage(1)}
                 disabled={currentPage === 1}
-                className="px-4 py-2 disabled:text-gray-400"
+                className=" disabled:text-gray-400"
               >
                 First
               </button>
             </li>
             <ReactPaginate
               pageCount={totalPages}
-              pageRangeDisplayed={2}
-              marginPagesDisplayed={1}
+              pageRangeDisplayed={3}
+              marginPagesDisplayed={3}
               onPageChange={({ selected }) => setCurrentPage(selected + 1)}
               forcePage={currentPage - 1}
               breakLabel="..."
               previousLabel=" "
               nextLabel=" "
-              containerClassName="flex gap-2"
-              pageLinkClassName="px-4 py-2 text-black rounded-md pb-5 font-bold disabled:text-blue-500"
+              containerClassName="flex px-6.25"
+              pageLinkClassName="px-2 text-black rounded-md pb-5 font-bold disabled:text-blue-500"
               activeLinkClassName="text-blue-500"
               disabledLinkClassName="text-gray-400"
-              breakLinkClassName="px-4 py-2 text-black rounded-md pb-5 font-bold disabled:text-blue-500"
+              breakLinkClassName="px-2 text-black rounded-md pb-5 font-bold disabled:text-blue-500"
             />
             <li>
               <button
-                className="px-4 py-2 pb-5 disabled:text-gray-400"
+                className=" disabled:text-gray-400"
                 disabled={currentPage === totalPages}
                 onClick={() => setCurrentPage(totalPages)}
               >
