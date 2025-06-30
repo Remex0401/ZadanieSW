@@ -15,7 +15,7 @@ export const Button: FC<ButtonProps> = ({
 }) => {
   const sizeClasses = {
     small: "px-6 py-2",
-    large: "w-25 h-9.5",
+    large: "w-25 h-10",
     card: "w-64 h-9.5",
   };
 
